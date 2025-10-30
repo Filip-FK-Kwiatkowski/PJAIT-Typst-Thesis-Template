@@ -1,13 +1,14 @@
 
 #let apply-pjatk-template(
     body,
+    faculty: "Faculty of Computer Science",
+    department: "Name of your Specialization's Department",
+    specialization: "Name of your Specialization",
+    authors: ("Your Name --- s#####", "Another Author's Name --- s#####"),
     title: "Your Thesis Title",
-    name-and-surname: "Your Name",
     supervisor: "Supervisor's Name",
     auxiliary-supervisor: "Auxiliary Supervisor's Name",
-    specialization: "Name of your Specialization",
-    department: "Name of your Specialization's Department",
-    language: "pl"
+    language: "en"
 ) = {
     set page(
         paper: "a4",
@@ -67,6 +68,44 @@
     show outline.entry.where(level: 3): it => emph(it)
 
     show heading.where(level: 1): it => { pagebreak(weak: true, to: "odd"); it }
+
+    {
+        set page(margin: (top: 1in, bottom: 1.25in, left: 1.75in, right: 1.75in))
+        image("PJATK_pl_poziom_1.pdf")
+
+        align(center)[
+            #h(2cm)
+
+            #strong(faculty)
+
+            #h(1cm)
+
+            #strong(department)
+            #linebreak()
+            #specialization
+
+            #h(1cm)
+
+            //#eval(authors.join("\n"), mode: "markup")
+
+            #h(1cm)
+
+            #strong(text(size: 2em, title))
+
+            #v(1fr)
+        ]
+
+                /*\begin{rightbox}{5cm}
+                    \pjthesistypeandsupervisortext\\
+                    \bigskip
+                    {\bfseries \pjsupervisor}\\
+                    \pjauxsupervisor
+                \end{rightbox}
+
+                \vfill
+
+                \pjdefencedateandloc*/
+    }
 
     outline(target: heading)
 
