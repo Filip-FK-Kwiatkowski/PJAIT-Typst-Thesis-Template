@@ -135,7 +135,7 @@
         lang: language
     )
 
-    set par(justify: true)
+    set par(leading: 0.55em, justify: true, spacing: 0.55em)
 
     set heading(numbering: "1.1")
 
