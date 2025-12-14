@@ -28,6 +28,9 @@ jobs:
                   git config user.name "${{ steps.bot-details.outputs.name }}"
                   git config user.email "${{ steps.bot-details.outputs.email }}"
                   git add -A
+                  git status --porcelain=v1
+                  git diff --stat
+                  ls -la
 
                   if ! git diff --cached --quiet; then
                     git commit -m "chore: update generated files [skip ci]"
