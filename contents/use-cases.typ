@@ -2,7 +2,7 @@
 
 Use cases
 allow for:
-- quick estimations
+- quick estimates
   regarding project's complexity and scope;
 - easy and reliable way
   to inspect the details
