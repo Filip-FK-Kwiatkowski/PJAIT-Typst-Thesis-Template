@@ -106,7 +106,9 @@
     authors: ("Your Name --- s#####",),
     title: "Your Carefully Selected and Expressive Thesis Title",
     supervisor: "Supervisor's Name",
+    supervisor-pl: "Imię i nazwisko promotora",
     reviewer: "Reviewer's Name",
+    reviewer-pl: "Imię i nazwisko recenzenta",
     abstract: placeholder-abstract,
     keywords: placeholder-keywords,
     for-printing: false,
@@ -195,8 +197,8 @@
             specialization,
             authors,
             title,
-            supervisor,
-            reviewer,
+            if text.lang == "pl" { supervisor-pl } else { supervisor },
+            if text.lang == "pl" { reviewer-pl } else { reviewer },
         )
 
         if text.lang == "en" {
@@ -209,8 +211,8 @@
                 specialization-pl,
                 authors,
                 title-pl,
-                supervisor,
-                reviewer,
+                supervisor-pl,
+                reviewer-pl,
             )
             set text(lang: "en")
         } else {
