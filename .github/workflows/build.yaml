@@ -22,7 +22,7 @@ jobs:
       - name: Install Typst
         uses: typst-community/setup-typst@v4
       - name: Build PDF
-        run: typst compile main.typ main.pdf
+        run: typst compile main.typ main.pdf --font-paths=contents/assets/fonts
       - name: Commit changes
         run: |
           git config user.name "${{ steps.bot-details.outputs.name }}"
