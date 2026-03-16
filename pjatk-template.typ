@@ -82,7 +82,7 @@
            #v(1fr)
 
            #commonPhrases.at("city").at(language),
-           #icu.fmt(datetime.today(), locale: language, length: "long")
+           #icu.fmt(datetime.today(), date-fields: "YM", locale: language, length: "long")
        ]
     }
 
@@ -264,4 +264,3 @@
         outline(title: commonPhrases.at("list-of-tables").at(text.lang), target: figure.where(kind: table))
     }
 }
-
