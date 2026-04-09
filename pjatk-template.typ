@@ -1,7 +1,7 @@
 #import "@preview/icu-datetime:0.2.0" as icu
 
 #let commonPhrases = (
-    "logo": ("pl": "PJATK_pl_poziom_1.pdf", "en": "PJAIT_en_poziom_1.pdf"),
+    "logo": ("pl": "contents/assets/images/PJATK_pl_poziom_1.pdf", "en": "contents/assets/images/PJAIT_en_poziom_1.pdf"),
     "supervision-text": ("pl": "Praca inżynierska / Praca magisterska napisana pod kierunkiem:", "en": "Master's degree / Bachelor's degree thesis written under the supervision of:"),
     "city": ("pl": "Warszawa", "en": "Warsaw"),
     "abstract": ("pl": "Streszczenie", "en": "Abstract"),

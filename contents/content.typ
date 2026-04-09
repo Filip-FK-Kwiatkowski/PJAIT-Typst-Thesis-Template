@@ -281,13 +281,13 @@ was set to 50% (height was scaled automatically).
 #figure(
     caption: [Typst's logo.]
 )[
-    #image("assets/Typst.png")
+    #image("assets/images/Typst.png")
 ] <img-raw-Typst-logo>
 
 #figure(
     caption: [Typst's logo, but smaller.]
 )[
-    #image("assets/Typst.png", width: 50%)
+    #image("assets/images/Typst.png", width: 50%)
 ] <img-smaller-Typst-logo>
 
 Commands used to produce the above output are presented in @listing-Examples-of-image-usage.
@@ -301,13 +301,13 @@ placed below them.
 #figure(
     caption: "Typst's logo."
 )[
-    #image("assets/Typst.png")
+    #image("assets/images/Typst.png")
 ] <img-raw-Typst-logo>
 
 #figure(
     caption: [Typst's logo, but smaller.]
 )[
-    #image("assets/Typst.png", width: 80%)
+    #image("assets/images/Typst.png", width: 80%)
 ] <img-smaller-Typst-logo>
 ````
 ]<listing-Examples-of-image-usage>
