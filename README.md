@@ -101,7 +101,7 @@ There's an argument for that too
 ```
 
 The documentation for all arguments
-can be found at the end of this document.
+can be found [at the end of this document](#documentation-for-apply-pjatk-template-function-arguments).
 
 ## I don't like that inline code has a blue background
 
@@ -144,7 +144,7 @@ in English (🇬🇧).
 In summary, arguments with `-pl` suffix are translations
 for Enlgish theses.
 
-- `language: "en"` (🇬🇧+🇵🇱).
+- `language: "en"` (🇬🇧+🇵🇱)
 
   Specifies the language for your document.
   Polish and English have different rules
@@ -241,7 +241,7 @@ for Enlgish theses.
 - `keywords-pl: "Tłumaczenie słów kluczowych."` (🇬🇧)
   
   Translation of your keywords.
-- `highlight-inline-code: true`
+- `highlight-inline-code: true` (🇬🇧+🇵🇱)
   
   Whether to add lightblue highlight
   for inline code.
