@@ -1,10 +1,10 @@
 # PJAIT thesis template written in Typst
 
 This repository consists of two main files:
-- `main.typ`, that is used to render your thesis
-- `pjatk-template.typ`, which automates the styling of your thesis,
+- `main.typ`, that is used to render your document (the thesis' documentation)
+- `pjatk-template.typ`, which automates the styling of your document,
   including the generation of title pages
-  with accordance to the university's requirements
+  in accordance with university's requirements
 
 ## How do I use it?
 
