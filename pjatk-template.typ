@@ -13,6 +13,7 @@
     "list-of-listings": ("pl": "Spis Listingów", "en": "List of Listings"),
     "list-of-figures": ("pl": "Spis Rysunków", "en": "List of Figures"),
     "list-of-tables": ("pl": "Spis Tabel", "en": "List of Tables"),
+    "bibliogrpahy": ("pl": "Bibliografia", "en": "Bibliogrpahy"),
 )
 
 #let aiStatementStrings = (
@@ -388,9 +389,12 @@
 
     body
 
-    bibliography(
-        "references.bib",
-    )
+    context {
+        bibliography(
+            title: commonPhrases.at("bibliogrpahy").at(text.lang),
+            "references.bib",
+        )
+    }
 
     context {
         show outline: set heading(outlined: true)
