@@ -1,94 +1,133 @@
-#set page(
-    paper: "a4",
-    footer: context [
-        #set text(fill: gray)
+#import "synopsis-template.typ": apply-synopsis-template
 
-        #show regex("\d+"): it => strong(it)
+// !!! change this !!!
+#let language = "pl"
+#let title = "Proposed Title of the Thesis / Proponowany tytuł pracy dyplomowej."
+#let authors = ("Filip Kwiatkowski, s17137",)
+// !!! change this !!!
 
-        #grid(columns: (1fr, 1fr, 1fr),
-            [Konspekt pracy inżynierskiej]
-            ,align(center)[strona #counter(page).display("1 z 1", both: true)],
-            h(100%)
-        )
-    ]
+#let terms = yaml("terms.yaml").at(language)
+#let accent-color = rgb("#be161e")
+#let to-fill = text(fill: accent-color, smallcaps(lower(terms.to-fill)))
+
+#show: apply-synopsis-template.with(
+    language: language,
+    authors: authors,
+    title: title,
 )
 
-#show link: it => text(fill: blue)[*#it*]
+= #terms.formal-info
 
-#strong[Polsko-Japońska Akademia Technik Komputerowych]\
-Katedra: #strong[Inżynieria Oprogramowania i Baz Danych]\
++ #terms.studies:
 
-#align(center)[
-    #text(size: 2em, strong[Konspekt pracy inżynierskiej])
-]
+  #to-fill
 
-#block(fill: rgb("#FFF2CC"), inset: 10pt)[
-    #show text: it => emph(it)
-    #grid(columns: 2,
-        block[#v(-0.35em) #text(size: 3em)[#emoji.book.open]],
-        [
-            *Przed* wypełnieniem poniższego dokumentu należy *uważnie* przeczytać uwagi odnośnie:
-            - pracy inżynierskiej: #link("https://www.mtrzaska.com/praca-dyplomowa-pro/")#footnote[W szczególności proszę zwrócić uwagę na nawiązanie do *uwag ogólnych dotyczących pracy magisterskiej*, które również się tutaj aplikują.].
-            - pracy magisterskiej: #link("http://www.mtrzaska.com/seminarium-magisterskie-informacje").
-        ]
-    )
-]
++ #terms.supervisor:
 
-#let fullWidth = table.cell.with(colspan: 4)
+  #to-fill
 
-// ========== TODO: Należy wypełnić bloki zawierające tyldy (~) odpowiednimi informacjami. ==========
++ #terms.accept-date:
 
-#table(
-    columns: (1fr, 1fr, 1fr, 1fr),
-    stroke: 1pt,
-    inset: 5pt,
-    fill: (x, y) => if calc.even(y) { luma(230) },
-    table.cell(colspan: 3)[1. Imię i nazwisko dyplomanta / dyplomantki.], [2. Nr albumu.],
-    table.cell(colspan: 3)[~], [~],
-    fullWidth[3. Studia, specjalizacja, kod grupy projektowej, np. "Informatyka niestacjonarne drugiego stopnia polskojęzyczne Warszawa; Programowanie Aplikacji Biznesowych; PRO1G".],
-    fullWidth[~],
-    fullWidth[4. Tytuł, imię i nazwisko prowadzącego (promotora).],
-    fullWidth[~],
-    table.cell(colspan: 2)[5. Data przekazania konspektu.], table.cell(colspan: 2)[6. Data zatwierdzenia tematu pracy i konspektu.],
-    table.cell(colspan: 2)[~], table.cell(colspan: 2)[~],
-    fullWidth[7. Proponowany tytuł pracy (uzgodniony z osobą prowadzącą).],
-    fullWidth[~],
-    fullWidth[8. Krótkie omówienie motywacji i kontekstu pracy. Omówienie powinno precyzować dział/działy baz danych, inżynierii oprogramowania, Internetu lub systemów rozproszonych, której praca ma dotyczyć, systemy, udogodnienia, języki, standardy, które będą przedmiotem tej pracy, oraz motywację podjęcia tego tematu.],
-    fullWidth[~],
-    fullWidth[9. Krótkie omówienie związków proponowanego tematu z dotychczasowym życiorysem zawodowym dyplomanta: czy praca stanowi kontynuację innej pracy dyplomowej, czy wynika z tematu, z którym dyplomant ma do czynienia w pracy zawodowej, czy wynika z pewnych szczególnych doświadczeń lub zainteresowań, czy też wynika z wyczucia perspektyw zawodowych itp. Omówienie powinno jasno określać stopień znajomości tematyki i problematyki związanej z proponowanym tematem przez dyplomanta.],
-    fullWidth[~],
-    fullWidth[10. Stan sztuki --- omówienie istniejących rozwiązań z danego obszaru i w czym proponowane rozwiązanie będzie lepsze lub chociaż inne? Te różnice mogą być związane z np. wydajnością, bezpieczeństwem, funkcjonalnościami, sposobem obsługi, rozwiązaniami technicznymi, zastosowanymi technologiami itp. Należy również omówić cel i zakres pracy: jaką potrzebę praca zrealizuje, jaką wadę może wyeliminować, jaką nową jakość może wnieść, kto skorzysta na tej pracy, jakie procesy zostaną usprawnione itd.],
-    fullWidth[~],
-    fullWidth[11. Źródła informacyjne i materiały niezbędne do napisania pracy: książki, czasopisma, dokumentacja, strony Web, materiały niepublikowane. Trudności z pozyskaniem, zgromadzeniem, dostępem, kompletnością, objętością do przeczytania, specjalistyczną hermetycznością itd. Czy występują u dyplomanta trudności z językiem angielskim materiałów?],
-    fullWidth[~],
-    fullWidth[12. Podstawy teoretyczne, metodologie, standardy, na których praca będzie się opierać lub których ma dotyczyć.],
-    fullWidth[~],
-    fullWidth[13. Działające systemy, kompilatory, biblioteki, udogodnienia itp., których praca ma dotyczyć. Ten punkt ma zastosowanie gdy np. modyfikujemy jakieś istniejące rozwiązania.],
-    fullWidth[~],
-    fullWidth[14. Proponowane środki implementacyjne i narzędziowe: systemy zarządzania bazami danych, metodyki i notacje w inżynierii oprogramowania, języki programowania, systemy dedykowane dla Internetu itd.],
-    fullWidth[~],
-    fullWidth[15. Krótkie omówienie tych środków z następujących punktów widzenia: ich znajomości przez dyplomanta, ich nowoczesności, popularności, dostępności, uniwersalności, celowości, przydatności itd.],
-    fullWidth[~],
-    fullWidth[16. Omówienie ewentualnych pracochłonnych badań empirycznych, eksperymentów, badań rynkowych, testów, porównań, zestawień, testów zaimplementowanego oprogramowania niezbędnych dla zrealizowania tematu pracy.],
-    fullWidth[~],
-    fullWidth[17. Merytoryczny plan pracy (zadania do wykonania), proponowany spis treści oraz wstępna ocena objętości poszczególnych rozdziałów w stronach. Warto zapoznać się z #link("https://www.mtrzaska.com/seminarium-magisterskie-informacje/")[informacjami z pkt. 4].],
-    fullWidth[~],
-    fullWidth[18. Realistyczny harmonogram pracy (wykorzystujący daty wyrażone jako rok i miesiąc) z wyraźnym określeniem terminów poszczególnych faz: uczenia się, tworzenia koncepcji, tworzenia oprogramowania, opisu motywacji i stanu sztuki, opisu teoretycznego, opisu zastosowanej metody, opisu implementacji itd.; zasadnicze pisanie tekstu odbywa się dopiero po zatwierdzeniu prototypu; obrony prac przeprowadzane są tylko w sesjach egzaminacyjnych.],
-    fullWidth[~],
-    fullWidth[19. Krótkie omówienie potencjalnych zastosowań wyników pracy oraz stopnia jej generyczności/uniwersalności (np. system wtyczek). Należy podać w jakich obszarach zastosowań mogą być potencjalnie zastosowane te wyniki, jak szeroki jest to obszar i jakie dalsze akcje (po zakończeniu pracy) należałoby podjąć celem rozwinięcia lub upowszechnienia wyników pracy.],
-    fullWidth[~],
-    fullWidth[20. Krótkie omówienie nowatorskiego lub wynalazczego charakteru pracy (o ile występuje); podanie powodów, dla których realizacja celu pracy może być nową jakością w informatyce.],
-    fullWidth[~],
-    fullWidth[21. Analiza ryzyka związanego z pracą: określenie elementów koncepcji, narzędzi, teorii, literatury, dokumentacji, które mogą stanowić trudność przy realizacji pracy, realistyczna ocena własnych kompetencji i wiedzy, realistyczna ocena ewentualnej pomocy osób zewnętrznych (w tym osoby prowadzącej), realistyczna ocena dostępności oprogramowania narzędziowego, kodów źródłowych, dokumentacji, ocena możliwości w zakresie zaplecza komputerowego PJATK, ocena możliwości własnego zaplecza poza PJATK itd.],
-    fullWidth[~],
-    fullWidth[22. Określenie wymagań co do zaplecza komputerowego (sprzęt, oprogramowanie, infrastruktura, lokal, pomoc techniczna) w PJATK, które jest niezbędne do realizacji pracy.],
-    fullWidth[~],
-    fullWidth[23. Nośnik, na którym będzie udostępnione oprogramowanie: np. CD-ROM, strona Web lub inne.],
-    fullWidth[~],
-    fullWidth[24. Podział części pracy pomiędzy jej realizatorów: podział tematów, podział implementacji, podział części tekstu pracy. Podziały powinny przedstawiać procentowy udział poszczególnych wykonawców w poszczególnych częściach pracy.],
-    fullWidth[~],
-)
+  #to-fill
 
-#emph[Opracował: Kazimierz Subieta, Mariusz Trzaska, wersja z dnia 2025-10-27]\
-#emph[Źródło i więcej informacji: #link("http://www.mtrzaska.com/seminarium-magisterskie-informacje"), #link("https://www.mtrzaska.com/praca-dyplomowa-pro/")]\
-#emph[Port z dokumentu `.docx` na Typst: Filip Kwiatkowski, wersja z dnia 2025-10-27]
+= #terms.rationale
+
++ #terms.motivation:
+
+  #to-fill
+
+  (Omówienie powinno precyzować działy baz danych,
+  inżynierii oprogramowania, internetu
+  czy systemów rozproszonych,
+  których praca ma dotyczyć.
+  Warto też wspomnieć o systemach,
+  udogodnieniach, językach i standardach,
+  które będą przedmiotem tej pracy.
+  Należy również uzasadnić podjęcie tego tematu.)
+
+  #divider()
+
+  (The description should specify
+  the areas of databases, software engineering, the internet,
+  or distributed systems
+  that the thesis will concern.
+  It should also identify
+  the systems, tools, programming languages, and standards
+  that will be covered.
+  It should also explain the rationale
+  for choosing this topic.)
+
++ #terms.relationship:
+
+  #to-fill
+
+  (Czy praca stanowi kontynuację innej pracy dyplomowej,
+  czy wynika z tematu, z którym dyplomant ma do czynienia
+  w pracy zawodowej,
+  czy wynika z pewnych szczególnych doświadczeń lub zainteresowań,
+  czy też wynika z wyczucia perspektyw zawodowych itp.
+  Omówienie powinno jasno określać
+  stopień znajomości tematyki i problematyki
+  związanej z proponowanym tematem przez dyplomanta.)
+
+  #divider()
+
+  (Whether the thesis builds on previous academic work,
+  relates to a topic encountered in the student's professional experience,
+  stems from specific interests or personal experience,
+  or reflects anticipated career opportunities.
+  The description should clearly indicate
+  the student's level of familiarity
+  with the subject
+  and the issues related to the proposed topic.)
+
++ #terms.soa:
+
+  #to-fill
+
+  (Omówienie istniejących rozwiązań z danego obszaru.
+  Odpowiedzenie na pytanie,
+  w czym proponowane rozwiązanie będzie lepsze
+  lub chociaż inne.
+  Te różnice mogą być związane np. z:
+  - wydajnością,
+  - bezpieczeństwem,
+  - funkcjonalnościami,
+  - sposobem obsługi,
+  - rozwiązaniami technicznymi,
+  - zastosowanymi technologiami itp.
+
+  Należy również omówić cel i zakres pracy:
+  - Jaką potrzebę praca zrealizuje?
+  - Jaką wadę może wyeliminować?
+  - Jaką nową jakość może wnieść?
+  - Kto skorzysta na tej pracy?
+  - Jakie procesy zostaną usprawnione?)
+
+  #divider()
+
+  (Review existing solutions
+  in the relevant field
+  and explain how the proposed solution
+  will improve upon them
+  or otherwise differ.
+  These differences may relate to:
+  - Performance
+  - Security
+  - Functionality
+  - Usability
+  - Technical approach
+  - Technologies used
+
+  Also describe the aim and scope of the thesis:
+  - What need it will address?
+  - What shortcomings it may eliminate?
+  - What added value it will provide?
+  - Who will benefit from it?
+  - What processes it will improve?)
+
+= #terms.basics
+
+= #terms.schedule
+
+= #terms.risks-resources

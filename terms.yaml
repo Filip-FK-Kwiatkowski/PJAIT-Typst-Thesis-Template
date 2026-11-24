@@ -1,0 +1,44 @@
+pl:
+  author: "Autor"
+  authors: "Autorzy"
+  synopsis: "Konspekt"
+
+  formal-info: "Informacje formalne"
+  studies: "Wydział, specjalizacja i grupa PRO"
+  supervisor: "Promotor (tytuł, imię i nazwisko)"
+  accept-date: "Data zatwierdzenia tematu i konspektu"
+
+  rationale: "Uzasadnienie"
+  title: "Tytuł pracy"
+  motivation: "Krótkie omówienie motywacji i kontekstu pracy"
+  relationship: "Krótkie omówienie związków proponowanego tematu z dotychczasowym życiorysem zawodowym dyplomanta"
+  soa: "Stan sztuki"
+
+  basics: "Podstawy i technologia"
+
+  schedule: "Harmonogram"
+
+  risks-resources: "Ryzyko i zasoby"
+
+  to-fill: "Wypełnić"
+
+en:
+  author: "Author"
+  authors: "Authors"
+  synopsis: "Synopsis"
+
+  formal-info: "Formal information"
+  studies: "Faculty, specialization and PRO group"
+  supervisor: "Supervisor (title, name and surname)"
+  accept-date: "Date of synopsis and title approval"
+
+  rationale: "Rationale"
+  title: "Thesis title"
+
+  basics: "Materials and technology"
+
+  schedule: "Schedule"
+
+  risks-resources: "Risks and resources"
+
+  to-fill: "To fill"
